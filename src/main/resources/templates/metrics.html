@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Metrics</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+        th, td {
+            background-color: #96D4D4;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<a href="/v1/form">Submit another Search</a>
+
+<h1>Metrics</h1>
+<table style="width:100%">
+    <th>User</th>
+    <th>metrics-data</th>
+    <tr th:each="metricList: ${metrics.metricDataList}">
+        <td th:text="${metricList.user}" />
+        <td th:each="metric: ${metricList.metrics}">
+            <span th:text ="${metric.method}"/> -> <span th:text ="${metric.dateTime}"/>
+        </td>
+    </tr>
+</table>
+<a href="/v1/form">Submit another Search</a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

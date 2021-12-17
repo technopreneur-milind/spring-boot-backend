@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table, th, td {
+            border: 1px solid white;
+            border-collapse: collapse;
+        }
+        th, td {
+            background-color: #96D4D4;
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<a href="/v1/form">Submit another Search</a>
+<div th:if="${admin!= null}">
+    <a href="/v1/metrics">Metrics</a>
+</div>
+<h1>Result</h1>
+    <table style="width:100%">
+<th>Name of Repository</th>
+    <th>Url of the Repository</th>
+<tr th:each="repo: ${response.repositories}">
+    <td th:text="${repo.name}" />
+    <td th:text="${repo.url}" />
+</tr>
+</table>
+<a href="/v1/form">Submit another Search</a>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

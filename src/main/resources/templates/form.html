@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Search Repositories</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+<div th:if="${admin!= null}">
+<a href="/v1/metrics">Metrics</a>
+</div>
+<h1>Search Repositories: Enter Weights[-100 ... 100] for</h1>
+<form action="#" th:action="@{/v1/search}" th:object="${repoFiltersWeights}" method="post">
+    <p>forkCount: <input type="text" th:field="*{forkCountWeight}" /></p>
+    <p>watchers: <input type="text" th:field="*{watchersWeight}" /></p>
+    <p>openIssues: <input type="text" th:field="*{openIssuesWeight}" /></p>
+    <p>oddOwner: <input type="text" th:field="*{oddOwnerWeight}" /></p>
+    <p>size: <input type="text" th:field="*{sizeWeight}" /></p>
+    <p>Java Language: <input type="text" th:field="*{javaLanguageWeight}" /></p>
+    <p>Recently Updated: <input type="text" th:field="*{recentlyUpdatedWeight}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>
