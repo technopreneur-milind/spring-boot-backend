@@ -10,6 +10,9 @@
 
 ### Step 1 : ./buildNRun.sh
 
+
+**Note : I have commited the jar artifact for ease of installation & execution.
+
 # Using the Application
 1. visit https://localhost:8080 and you will be redirected to login page
 2. Login as normal user ( user/password) 
